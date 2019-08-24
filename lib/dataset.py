@@ -5,13 +5,29 @@ import numpy as np
 import pandas as pd
 __all__ = ["load","df2mat"]
 
+datasetpath = os.path.dirname( os.path.abspath(__file__) ) + "/../dataset/"
+
 def load( filename ):
     """
     CSVを読み込んでDataframeに変換する
     """
-    file = os.path.dirname( os.path.abspath(__file__) ) + "/../dataset/" + filename
+    root, ext = os.path.splitext( filename )
+    file = datasetpath + filename
 
-    return pd.read_csv( file )
+    if ext == ".csv":
+        print( "CSV file detected" )
+        df = pd.read_csv( file )
+
+    elif ext == ".RAW":
+        print( "RAW file detected" )
+        df = _raw2csv( root=root , file=file )
+
+    else:
+        print( "Unknown format" )
+        sys.exit()
+
+
+    return df
 
 
 def df2mat( df , columns ):
@@ -23,3 +39,35 @@ def df2mat( df , columns ):
         Y = Y.T[0]
 
     return Y
+
+
+def _raw2csv( root , file ):
+    """
+    rawファイルをcsvに出力する
+    """
+    if os.path.exists( datasetpath + root + ".csv" ):
+        df = pd.read_csv( file )
+    else:
+        labels_file = datasetpath + root + ".txt"
+        if not os.path.exists( labels_file ):
+            print( "Please Generate label file" )
+            sys.exit()
+
+        labels_obj = open( labels_file , "r" )
+        labels = labels_obj.read()
+        labels_obj.close()
+        rawdata = open(file, "r")
+        raw = rawdata.read()
+        raw = raw.split("\n")
+        raw_arr = []
+        for line in raw:
+            tmp = line.strip().split(" ")
+            l_in = [x for x in tmp if x]
+            if len( l_in ) != 0:
+                raw_arr.append( l_in )
+
+        df = pd.DataFrame( np.array( raw_arr ) , columns=labels.split(",") )
+        df.to_csv( datasetpath + root + ".csv" )
+        rawdata.close()
+
+    return df
