@@ -17,4 +17,11 @@ X_tX = np.dot( X.T , X )
 X_tY = np.dot( X.T , Y )
 b = np.dot( np.linalg.inv( X_tX ) , X_tY )
 
+print( "大問1.1の回答" )
 lib.add_suffix( b )
+
+print( "大問1.2の回答" )
+#ここに回答プログラムを記載する
+
+print( "大問1.3の回答" )
+#ここに回答プログラムを記載する
