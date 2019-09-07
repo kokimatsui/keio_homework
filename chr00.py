@@ -22,10 +22,9 @@ print( "大問1.1の回答" )
 lib.add_suffix( b )
 
 print( "大問1.2の回答" )
-beta_1 = b[0]
-X1 = lib.df2mat( df=artifical_dataset , columns=["x1"] )
+t = lib.t( X=X , Y=Y , beta=b )[0]
+print( "t value :" ,  )
+print( "自由度998で、2.581を基準にしたところ 2.581 <" , t , "なので、β0 = 0は棄却される" )
 
 print( "大問1.3の回答" )
 #ここに回答プログラムを記載する
-
-print( lib.t( X=X , Y=Y , beta=b ) )
