@@ -28,7 +28,7 @@ print( "自由度998で、2.581を基準にしたところ 2.581 <" , t , "な�
 
 print( "大問1.3の回答" )
 artifical_dataset = lib.load( filename="artificial.csv" )
-explanatories = ["x1","x2","const"]
+explanatories = ["x1","x2","x3","const"]
 explained = ["y"]
 
 X = lib.df2mat( df=artifical_dataset , columns=explanatories )
