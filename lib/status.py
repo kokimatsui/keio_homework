@@ -24,14 +24,15 @@ def var( X ):
     if X.ndim == 1:
         return np.var( X , ddof=1 )
 
-def t( X , beta ):
+def t( X , Y , beta ):
     """
     t値
     """
-    if X.ndim == 1:
-        t = ( np.average( X ) ) / np.sqrt( np.var( X , ddof=1 ) / len( X ) )
+    X_bar = np.average( X )
+    Y_hat = np.dot( X , beta )
+    std_error = np.sqrt( ( np.sum( (  Y - Y_hat  ) ** 2 ) / ( len( Y ) - 2 ) ) / np.sum( ( X - X_bar )**2 ) )
 
-    return round( t , 5 )
+    return ( beta / std_error )
 
 
 

@@ -24,7 +24,8 @@ lib.add_suffix( b )
 print( "大問1.2の回答" )
 beta_1 = b[0]
 X1 = lib.df2mat( df=artifical_dataset , columns=["x1"] )
-print( "t値 :" , lib.t( X=X1  , beta=beta_1 ) )
 
 print( "大問1.3の回答" )
 #ここに回答プログラムを記載する
+
+print( lib.t( X=X , Y=Y , beta=b ) )
