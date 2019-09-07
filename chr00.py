@@ -27,4 +27,15 @@ print( "t value :" ,  )
 print( "自由度998で、2.581を基準にしたところ 2.581 <" , t , "なので、1%水準でβ0 = 0は棄却される" )
 
 print( "大問1.3の回答" )
-#ここに回答プログラムを記載する
+artifical_dataset = lib.load( filename="artificial.csv" )
+explanatories = ["x1","x2","const"]
+explained = ["y"]
+
+X = lib.df2mat( df=artifical_dataset , columns=explanatories )
+Y = lib.df2mat( df=artifical_dataset , columns=explained )
+
+#####演算#####
+X_tX = np.dot( X.T , X )
+X_tY = np.dot( X.T , Y )
+b = np.dot( np.linalg.inv( X_tX ) , X_tY )
+lib.add_suffix( b )
