@@ -18,6 +18,7 @@ Y = lib.df2mat( df=grunfeld_dataset , columns=explained )
 print( "大問2.1の回答" )
 #ここに回答プログラムを記載する
 
+
 print( "大問2.2の回答" )
 #ここに回答プログラムを記載する
 

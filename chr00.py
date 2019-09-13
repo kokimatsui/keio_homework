@@ -5,7 +5,7 @@ import numpy as np
 
 #####データを読み取る#####
 artifical_dataset = lib.load( filename="artificial.csv" )
-explanatories = ["const","x1"]
+explanatories = ["const" ,"x1"]
 explained = ["y"]
 
 #####各変数を定義#####
