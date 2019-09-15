@@ -14,9 +14,7 @@ Y = lib.df2mat( df=artifical_dataset , columns=explained )
 
 
 #####演算#####
-X_tX = np.dot( X.T , X )
-X_tY = np.dot( X.T , Y )
-b = np.dot( np.linalg.inv( X_tX ) , X_tY )
+b = lib.reg( X=X , Y=Y )
 
 print( "<大問1.1の回答>" )
 lib.add_suffix( b )
@@ -35,7 +33,5 @@ X = lib.df2mat( df=artifical_dataset , columns=explanatories )
 Y = lib.df2mat( df=artifical_dataset , columns=explained )
 
 #####演算#####
-X_tX = np.dot( X.T , X )
-X_tY = np.dot( X.T , Y )
-b = np.dot( np.linalg.inv( X_tX ) , X_tY )
+b = lib.reg( X=X , Y=Y )
 lib.add_suffix( b )

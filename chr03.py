@@ -12,9 +12,7 @@ print( "大問3.1の回答" )
 X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
 
-X_tX = np.dot( X.T , X )
-X_tY = np.dot( X.T , Y )
-b = np.dot( np.linalg.inv( X_tX ) , X_tY )
+b = lib.reg( X=X , Y=Y )
 lib.add_suffix( b )
 
 print( "大問3.2の回答" )
@@ -26,9 +24,7 @@ explained = ["lsalary"]
 X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
 
-X_tX = np.dot( X.T , X )
-X_tY = np.dot( X.T , Y )
-b = np.dot( np.linalg.inv( X_tX ) , X_tY )
+b = lib.reg( X=X , Y=Y )
 #lib.add_suffix( b )
 
 print( "大問3.3の回答" )
@@ -39,9 +35,7 @@ explained = ["lsalary"]
 X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
 
-X_tX = np.dot( X.T , X )
-X_tY = np.dot( X.T , Y )
-b = np.dot( np.linalg.inv( X_tX ) , X_tY )
+b = lib.reg( X=X , Y=Y )
 #lib.add_suffix( b )
 
 print( str( 0.01168 * 100 ) , "%" )
