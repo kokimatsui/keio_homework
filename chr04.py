@@ -16,9 +16,8 @@ print( "大問4.1の回答" )
 print( "係数が正になる" )
 
 print( "大問4.2の回答" )
-X_tX = np.dot( X.T , X )
-X_tY = np.dot( X.T , Y )
-b = np.dot( np.linalg.inv( X_tX ) , X_tY )
+b = lib.reg( X=X , Y=Y )
+
 lib.add_suffix( b )
 
 t = lib.t( X=X , Y=Y , beta=b )[0]
@@ -35,13 +34,20 @@ explained = ["approve"]
 X = lib.df2mat( df=LOANAPP_dataset , columns=explanatories )
 Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
 
-X_tX = np.dot( X.T , X )
-X_tY = np.dot( X.T , Y )
-b = np.dot( np.linalg.inv( X_tX ) , X_tY )
-t = lib.t( X=X , Y=Y , beta=b )[0]
-print( "t値 :", t )
+b = lib.reg( X=X , Y=Y )
 lib.add_suffix( b )
+
 print( "依然として差別は存在する" )
 
 print( "大問4.4の回答" )
 #ここに回答プログラムを記載する
+
+print( "大問4.5の回答" )
+LOANAPP_dataset = lib.cross_var( df=LOANAPP_dataset , var1="white" , var2="obrat" )
+explanatories = ["const","white*obrat","white","hrat","obrat","loanprc","unem","male","married","dep","sch","cosign","chist","pubrec","mortlat1","mortlat2","vr"]
+explained = ["approve"]
+
+X = lib.df2mat( df=LOANAPP_dataset , columns=explanatories )
+Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
+b = lib.reg( X=X , Y=Y )
+lib.add_suffix( b )

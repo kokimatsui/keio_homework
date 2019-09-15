@@ -3,7 +3,7 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-__all__ = ["load","df2mat"]
+__all__ = ["load","df2mat","cross_var"]
 
 datasetpath = os.path.dirname( os.path.abspath(__file__) ) + "/../dataset/"
 
@@ -40,6 +40,14 @@ def df2mat( df , columns ):
         Y = Y.T[0]
 
     return Y
+
+def cross_var( df , var1 , var2 ):
+    """
+    交差項を作成する
+    """
+    df[str(var1)+"*"+str(var2)] = df.loc[ : , var1 ] * df.loc[ : , var2 ]
+
+    return df
 
 
 def _raw2csv( root , file ):
