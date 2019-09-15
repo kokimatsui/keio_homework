@@ -24,6 +24,7 @@ t = lib.t( X=X , Y=Y , beta=b )[0]
 print( "t値 :", t )
 print( "1%有意で" , round( b[1] , 3  ) )
 print( "未回答" )
+sys.exit() 
 
 print( "大問4.3の回答" )
 #ここに回答プログラムを記載する
