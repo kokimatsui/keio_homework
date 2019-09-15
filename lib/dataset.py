@@ -41,6 +41,8 @@ def df2mat( df , columns ):
 
     return Y
 
+
+
 def cross_var( df , var1 , var2 ):
     """
     交差項を作成する
