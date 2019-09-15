@@ -9,6 +9,6 @@ def reg( X , Y ):
     """
     X_tX = np.dot( X.T , X )
     X_tY = np.dot( X.T , Y )
-    beta = np.dot( np.linalg.inv( X_tX ) , X_tY )
+    beta = np.dot( np.linalg.inv ( X_tX ) , X_tY )
 
     return beta
