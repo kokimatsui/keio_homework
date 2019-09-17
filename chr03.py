@@ -46,7 +46,7 @@ Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
 t = lib.t( X=X , Y=Y , beta=b )[1]
 
-print( "t値の5%水準" , lib.t_level( free=( X.shape[0] - len( b ) ) , level=1 ) )
+print( "t値の1%水準" , lib.t_level( free=( X.shape[0] - len( b ) ) , level=1 ) )
 print( "t値 :", t )
 print( "whiteの値が" + str( round( b[1] , 3 ) ) + "であり、統計的に1%有意であることから依然として差別は存在する" )
 print("\n")
@@ -55,12 +55,6 @@ print("\n")
 4-4の解答
 """
 print( "大問4.4の回答" )
-#ここに回答プログラムを記載する
-
-"""
-4-5の解答
-"""
-print( "大問4.5の回答" )
 LOANAPP_dataset = lib.cross_var( df=LOANAPP_dataset , var1="white" , var2="obrat" )
 explanatories = ["const","white*obrat","white","hrat","obrat","loanprc","unem","male","married","dep","sch","cosign","chist","pubrec","mortlat1","mortlat2","vr"]
 explained = ["approve"]
@@ -68,5 +62,21 @@ explained = ["approve"]
 X = lib.df2mat( df=LOANAPP_dataset , columns=explanatories )
 Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
-lib.add_suffix( b )
+t = lib.t( X=X , Y=Y , beta=b )[1]
+print( "t値の1%水準" , lib.t_level( free=( X.shape[0] - len( b ) ) , level=1 ) )
+print( "t値 :", t )
+print( "obratとwhiteの交差項は1%で統計的に有意" )
+
+"""
+4-5の解答
+"""
+print( "大問4.5の回答" )
+const , a = b[0] ,b[4]
+y = a * 32 + const
+obrat = lib.df2mat( df=LOANAPP_dataset , columns=["obrat"] )
+obrat_bar = np.average( obrat )
+print( "obratの値が32のときyの値は" , y , "なので、承認されていない" )
+print( "32は、だいたいobratの標本平均である" + str( round( obrat_bar , 3 ) ) + "と近い" )
+
+
 print("\n")
