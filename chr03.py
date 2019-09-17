@@ -30,7 +30,7 @@ lib.add_suffix( b )
 t = lib.t( X=X , Y=Y , beta=b )[0]
 print( "t値 :", t )
 print( "1%有意で" , round( b[1] , 3  ) )
-print( "未回答" )
+print( "大きい" )
 print("\n")
 
 """
@@ -44,8 +44,11 @@ explained = ["approve"]
 X = lib.df2mat( df=LOANAPP_dataset , columns=explanatories )
 Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
-lib.add_suffix( b )
-print( "依然として差別は存在する" )
+t = lib.t( X=X , Y=Y , beta=b )[1]
+
+print( "t値の5%水準" , lib.t_level( free=( X.shape[0] - len( b ) ) , level=1 ) )
+print( "t値 :", t )
+print( "whiteの値が" + str( round( b[1] , 3 ) ) + "であり、統計的に1%有意であることから依然として差別は存在する" )
 print("\n")
 
 """

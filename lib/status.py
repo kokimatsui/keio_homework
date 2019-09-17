@@ -1,9 +1,10 @@
 #!-*-coding:utf-8-*-
 import sys
 import numpy as np
+from scipy.stats import t as t_test
 from numpy.random import *
 
-__all__ = ["u","var","t"]
+__all__ = ["u","var","t","t_level"]
 
 def u( X ):
     """
@@ -32,7 +33,15 @@ def t( X , Y , beta , beta_01=0 ):
     Y_hat = np.dot( X , beta )
     std_error = np.sqrt( ( np.sum( (  Y - Y_hat  ) ** 2 ) / ( len( Y ) - 2 ) ) / np.sum( ( X - X_bar )**2 ) )
 
-    return ( ( beta - beta01 ) / std_error )
+    return ( ( beta - beta_01 ) / std_error )
+
+def t_level( free , level=5 ):
+    """
+    統計的に有意か調査
+    """
+
+    return t_test.ppf( q=( 1 - level * 0.01 ) , df=free )
+
 
 
 
