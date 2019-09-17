@@ -3,48 +3,51 @@ import lib
 import sys
 import numpy as np
 
-#####データを読み取る#####
-CEOSAL2_dataset = lib.load( filename="CEOSAL2.csv" )
-explanatories = ["const","lsales","lmktval"]
-explained = ["lsalary"]
 
-print( "大問3.1の回答" )
-X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
-Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
+LOANAPP_dataset = lib.load( filename="LOANAPP.csv" )
+explanatories = ["const","white"]
+explained = ["approve"]
 
+#####各変数を定義#####
+X = lib.df2mat( df=LOANAPP_dataset , columns=explanatories )
+Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
+
+print( "大問4.1の回答" )
+print( "係数が正の状態で、統計的に有意な値をとる" )
+print("\n")
+
+print( "大問4.2の回答" )
 b = lib.reg( X=X , Y=Y )
 lib.add_suffix( b )
+t = lib.t( X=X , Y=Y , beta=b )[0]
+print( "t値 :", t )
+print( "1%有意で" , round( b[1] , 3  ) )
+print( "未回答" )
+print("\n")
 
-print( "大問3.2の回答" )
-#####データを読み取る#####
-CEOSAL2_dataset = lib.load( filename="CEOSAL2.csv" )
-explanatories = ["const","lsales","lmktval","profits"]
-explained = ["lsalary"]
+print( "大問4.3の回答" )
+#ここに回答プログラムを記載する
+explanatories = ["const","white","hrat","obrat","loanprc","unem","male","married","dep","sch","cosign","chist","pubrec","mortlat1","mortlat2","vr"]
+explained = ["approve"]
 
-X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
-Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
-
+#####各変数を定義#####
+X = lib.df2mat( df=LOANAPP_dataset , columns=explanatories )
+Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
-#lib.add_suffix( b )
+lib.add_suffix( b )
+print( "依然として差別は存在する" )
+print("\n")
 
-print( "大問3.3の回答" )
-CEOSAL2_dataset = lib.load( filename="CEOSAL2.csv" )
-explanatories = ["const","lsales","lmktval","profits","ceoten"]
-explained = ["lsalary"]
+print( "大問4.4の回答" )
+#ここに回答プログラムを記載する
 
-X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
-Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
+print( "大問4.5の回答" )
+LOANAPP_dataset = lib.cross_var( df=LOANAPP_dataset , var1="white" , var2="obrat" )
+explanatories = ["const","white*obrat","white","hrat","obrat","loanprc","unem","male","married","dep","sch","cosign","chist","pubrec","mortlat1","mortlat2","vr"]
+explained = ["approve"]
 
+X = lib.df2mat( df=LOANAPP_dataset , columns=explanatories )
+Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
-#lib.add_suffix( b )
-
-print( str( 0.01168 * 100 ) , "%" )
-
-print( "大問3.4の回答" )
-CEOSAL2_dataset = lib.load( filename="CEOSAL2.csv" )
-explanatories = ["profits","lmktval"]
-
-X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
-coef = np.corrcoef( X.T )
-print( "相関係数は : ", coef  )
-print( "分析結果における係数の標準誤差が大きくなる\nt値が小さくなる\n決定係数が大きな値となる\n回帰係数の符号が本来なるべきものとは逆の符号となる" )
+lib.add_suffix( b )
+print("\n")

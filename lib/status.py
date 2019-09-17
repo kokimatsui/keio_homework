@@ -24,7 +24,7 @@ def var( X ):
     if X.ndim == 1:
         return np.var( X , ddof=1 )
 
-def t( X , Y , beta ):
+def t( X , Y , beta , beta_01=0 ):
     """
     t値
     """
@@ -32,7 +32,7 @@ def t( X , Y , beta ):
     Y_hat = np.dot( X , beta )
     std_error = np.sqrt( ( np.sum( (  Y - Y_hat  ) ** 2 ) / ( len( Y ) - 2 ) ) / np.sum( ( X - X_bar )**2 ) )
 
-    return ( beta / std_error )
+    return ( ( beta - beta01 ) / std_error )
 
 
 

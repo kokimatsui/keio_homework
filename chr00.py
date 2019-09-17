@@ -17,11 +17,13 @@ b = lib.reg( X=X , Y=Y )
 
 print( "<大問1.1の回答>" )
 lib.add_suffix( b )
+print("\n")
 
 print( "<大問1.2の回答>" )
 t = lib.t( X=X , Y=Y , beta=b )[0]
 print( "t value :" , t )
 print( "自由度998で、2.581を基準にしたところ 2.581 <" , t , "なので、1%水準でβ0 = 0は棄却される" )
+print("\n")
 
 
 print( "<大問1.3の回答>" )
@@ -35,4 +37,3 @@ Y = lib.df2mat( df=artifical_dataset , columns=explained )
 #####演算#####
 b = lib.reg( X=X , Y=Y )
 lib.add_suffix( b )
-#print( b )
