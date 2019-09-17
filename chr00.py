@@ -2,6 +2,9 @@
 import lib
 import sys
 import numpy as np
+"""
+1 Matrix Calculus
+"""
 
 #####データを読み取る#####
 artifical_dataset = lib.load( filename="artificial.csv" )

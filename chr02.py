@@ -2,6 +2,9 @@
 import lib
 import sys
 import numpy as np
+"""
+3 Multiple Regression
+"""
 
 #####データを読み取る#####
 CEOSAL2_dataset = lib.load( filename="CEOSAL2.csv" )
