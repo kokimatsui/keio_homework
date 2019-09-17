@@ -5,3 +5,4 @@ import numpy as np
 """
 5 Inference
 """
+print("\n")

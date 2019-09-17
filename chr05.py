@@ -56,3 +56,4 @@ print( "bdrmsの数が1単位上がると、priceは" + str(round( y , 4 )) + "%
 """
 6-9の解答
 """
+print("\n")
