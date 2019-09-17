@@ -72,6 +72,7 @@ t = lib.t( X=X , Y=Y , beta=b )[1]
 print( "t値の1%水準" , lib.t_level( free=( X.shape[0] - len( b ) ) , level=1 ) )
 print( "t値 :", t )
 print( "obratとwhiteの交差項は1%で統計的に有意" )
+print("\n")
 
 """
 4-5の解答

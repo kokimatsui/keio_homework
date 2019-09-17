@@ -41,6 +41,8 @@ print("\n")
 1-3の解答
 """
 print( "<大問1.3の回答>" )
+
+#####各変数を定義#####
 artifical_dataset = lib.load( filename="artificial.csv" )
 explanatories = ["const","x1","x2","x3"]
 explained = ["y"]
