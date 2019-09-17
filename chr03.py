@@ -77,6 +77,7 @@ obrat = lib.df2mat( df=LOANAPP_dataset , columns=["obrat"] )
 obrat_bar = np.average( obrat )
 print( "obratの値が32のときyの値は" , y , "なので、承認されていない" )
 print( "32は、だいたいobratの標本平均である" + str( round( obrat_bar , 3 ) ) + "と近い" )
+print( "Obtain a 95% confidence interval for this effectはまだ答えていない" )
 
 
 print("\n")
