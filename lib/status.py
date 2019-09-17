@@ -35,14 +35,13 @@ def t( X , Y , beta , beta_01=0 ):
 
     return ( ( beta - beta_01 ) / std_error )
 
+
 def t_level( free , level=5 ):
     """
     統計的に有意か調査
     """
 
     return t_test.ppf( q=( 1 - level * 0.01 ) , df=free )
-
-
 
 
 def _sampling( X ):
