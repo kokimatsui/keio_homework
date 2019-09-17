@@ -6,6 +6,7 @@ import numpy as np
 6 Inference2
 """
 
+#####データを読み取る#####
 HPRICE_dataset = lib.load( filename="HPRICE1.csv" )
 explanatories = ["const","sqrft","bdrms"]
 explained = ["lprice"]
@@ -18,6 +19,8 @@ b = lib.reg( X=X , Y=Y )
 """
 6-1の解答
 """
+
+#####解答#####
 lib.add_suffix( b , labels=explanatories )
 
 """
@@ -25,6 +28,8 @@ lib.add_suffix( b , labels=explanatories )
 """
 bdrms = b[2]
 y = bdrms
+
+#####解答#####
 print( "bdrmsの数が1単位上がると、priceは" + str(round( y , 4 )) + "%上がる" )
 
 
