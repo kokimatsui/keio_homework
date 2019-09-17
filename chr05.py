@@ -20,10 +20,13 @@ b = lib.reg( X=X , Y=Y )
 """
 lib.add_suffix( b , labels=explanatories )
 
-
 """
 6-2の解答
 """
+bdrms = b[2]
+y = bdrms
+print( "bdrmsの数が1単位上がると、priceは" + str(round( y , 4 )) + "%上がる" )
+
 
 """
 6-3の解答
