@@ -33,6 +33,7 @@ X = lib.df2mat( df=VOTE_dataset , columns=explanatories )
 Y = lib.df2mat( df=VOTE_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
 t_expendA = lib.t( X=X , Y=Y , beta=b )[1]
+
 lib.add_suffix( coefs=b , labels=explanatories )
 print( "Aの支出は" + str( b[1] ) + "であり、t値が" +\
  str( round( t_expendA , 3 ) ) + "であり1%有意であることから、結果に大きな影響を与えると言える" )
