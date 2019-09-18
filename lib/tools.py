@@ -7,6 +7,6 @@ def add_suffix( coefs , labels=None ):
     """
     for i in range( len( coefs ) ):
         if labels is not None:
-            print( str(labels[i]) + "の値は" + str( round( coefs[i] , 5  ) ) )
+            print( str(labels[i]) + "の値は" + str( coefs[i] ) )
         else:
-            print( "β " + str(i) + "の値は" + str( round( coefs[i] , 5  ) ) )
+            print( "β " + str(i) + "の値は" + str( coefs[i] ) )

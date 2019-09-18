@@ -43,6 +43,8 @@ def std_error( X , Y , beta ):
     return st_err
 
 
+
+
 def t_level( free , level=5 ):
     """
     統計的に有意か調査
