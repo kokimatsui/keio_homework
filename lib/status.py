@@ -50,6 +50,7 @@ def t_level( free , level=5 ):
 
     return t_test.ppf( q=( 1 - level * 0.01 ) , df=free )
 
+
 def conf_inter( beta , t , free , se ):
     """
     95%信頼区間の上限と下限を算出
