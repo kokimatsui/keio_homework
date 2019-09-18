@@ -12,3 +12,4 @@ all-answer:
 	python chr03.py
 	python chr04.py
 	python chr05.py
+	python chr06.py

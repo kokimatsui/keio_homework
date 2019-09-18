@@ -34,7 +34,7 @@ def df2mat( df , columns ):
     """
     Dataframeから特定の列を取得して行列に変換する
     """
-    df["const"] = np.ones( len( df ) )
+    df = df.assign(const=1)
     Y = np.array( df.loc[ : , columns ]  , dtype=np.float64)
     if len( columns ) <= 1:
         Y = Y.T[0]
