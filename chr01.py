@@ -43,7 +43,9 @@ explained = ["lsalary"]
 X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
+ceoten = b[1]
+y = ceoten
 
 #####解答#####
-lib.add_suffix( b )
+print( "ceotenが1年伸びるとsalaryが" + str( y ) + "%伸びる"  )
 print("\n")

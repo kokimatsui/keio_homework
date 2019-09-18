@@ -4,7 +4,7 @@ import numpy as np
 from scipy.stats import t as t_test
 from numpy.random import *
 
-__all__ = ["u","var","t","t_level"]
+__all__ = ["u","var","t","t_level","conf_inter","std_error"]
 
 def u( X ):
     """
@@ -50,9 +50,16 @@ def t_level( free , level=5 ):
 
     return t_test.ppf( q=( 1 - level * 0.01 ) , df=free )
 
-def conf_inter( beta , free , se ):
-    pass
-
+def conf_inter( beta , t , free , se ):
+    """
+    95%信頼区間の上限と下限を算出
+    """
+    a1 = ( beta - t * se )
+    a2 = ( beta + t * se )
+    if a1 < a2:
+        return { "Lower" : a1 , "Upper" : a2 }
+    else:
+        return { "Lower" : a2 , "Upper" : a1 }
 
 def _sampling( X ):
     """
