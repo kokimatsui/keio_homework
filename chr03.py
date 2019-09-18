@@ -5,7 +5,7 @@ import numpy as np
 """
 4 Multiple Regression
 """
-
+print("#############4 Multiple Regression#############")
 LOANAPP_dataset = lib.load( filename="LOANAPP.csv" )
 explanatories = ["const","white"]
 explained = ["approve"]

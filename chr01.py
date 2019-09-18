@@ -5,7 +5,7 @@ import numpy as np
 """
 2 Simple Regression
 """
-
+print("#############2 Simple Regression#############")
 CEOSAL2_dataset = lib.load( filename="CEOSAL2.csv" )
 explanatories = ["salary"]
 explained = ["lsalary"]
