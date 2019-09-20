@@ -5,7 +5,7 @@ import numpy as np
 """
 6 Inference2
 """
-print("#############6 Inference2#############")
+lib.title("#############6 Inference2#############")
 #####データを読み取る#####
 HPRICE_dataset = lib.load( filename="HPRICE1.csv" )
 explanatories = ["const","sqrft","bdrms"]
@@ -19,7 +19,7 @@ b = lib.reg( X=X , Y=Y )
 """
 6-1の解答
 """
-print("<6.1の解答>")
+lib.chaper("<6.1の解答>")
 #####解答#####
 lib.add_suffix( b , labels=explanatories )
 print("\n")
@@ -27,7 +27,7 @@ print("\n")
 """
 6-2の解答
 """
-print("<6.2の解答>")
+lib.chaper("<6.2の解答>")
 #####回帰係数の取得#####
 const , sqrft , bdrms = b[0] , b[1] , b[2]
 y_bdrms = bdrms
@@ -40,7 +40,7 @@ print("\n")
 """
 6-3の解答
 """
-print("<6.3の解答>")
+lib.chaper("<6.3の解答>")
 #####回帰係数の取得#####
 const , sqrft , bdrms = b[0] , b[1] , b[2]
 y_sqrft = 140 * sqrft
@@ -52,14 +52,14 @@ print("\n")
 """
 6-4の解答
 """
-print("<6.4の解答>")
+lib.chaper("<6.4の解答>")
 print("未解答")
 print("\n")
 
 """
 6-5の解答
 """
-print("<6.5の解答>")
+lib.chaper("<6.5の解答>")
 y_pred = 2438 * sqrft + 4 * bdrms + const
 print( "sqrftが2438で、bdrmsが4のとき、物件価値は" + str( y_pred ) + "と推計される " )
 print("\n")
@@ -67,7 +67,7 @@ print("\n")
 """
 6-6の解答
 """
-print("<6.6の解答>")
+lib.chaper("<6.6の解答>")
 y_teach = 300000
 residual = np.abs( y_teach - np.exp( y_pred ) )
 print( str( round( residual , 3 ) ) + "円分overpayしている " )
@@ -76,17 +76,17 @@ print("\n")
 """
 6-7の解答
 """
-print("<6.7の解答>")
+lib.chaper("<6.7の解答>")
 print("\n")
 
 """
 6-8の解答
 """
-print("<6.8の解答>")
+lib.chaper("<6.8の解答>")
 print("\n")
 
 """
 6-9の解答
 """
-print("<6.9の解答>")
+lib.chaper("<6.9の解答>")
 print("\n")

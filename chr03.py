@@ -5,7 +5,7 @@ import numpy as np
 """
 4 Multiple Regression
 """
-print("#############4 Multiple Regression#############")
+lib.title("#############4 Multiple Regression#############")
 LOANAPP_dataset = lib.load( filename="LOANAPP.csv" )
 explanatories = ["const","white"]
 explained = ["approve"]
@@ -17,14 +17,14 @@ Y = lib.df2mat( df=LOANAPP_dataset , columns=explained )
 """
 4-1の解答
 """
-print( "大問4.1の回答" )
+lib.chaper( "大問4.1の回答" )
 print( "係数が正の状態で、統計的に有意な値をとる" )
 print("\n")
 
 """
 4-2の解答
 """
-print( "大問4.2の回答" )
+lib.chaper( "大問4.2の回答" )
 b = lib.reg( X=X , Y=Y )
 lib.add_suffix( b )
 t = lib.t( X=X , Y=Y , beta=b )[0]
@@ -36,7 +36,7 @@ print("\n")
 """
 4-3の解答
 """
-print( "大問4.3の回答" )
+lib.chaper( "大問4.3の回答" )
 #####説明変数を定義#####
 explanatories = ["const","white","hrat","obrat","loanprc","unem","male","married","dep","sch","cosign","chist","pubrec","mortlat1","mortlat2","vr"]
 explained = ["approve"]
@@ -56,7 +56,7 @@ print("\n")
 """
 4-4の解答
 """
-print( "大問4.4の回答" )
+lib.chaper( "大問4.4の回答" )
 #####説明変数を定義#####
 LOANAPP_dataset = lib.cross_var( df=LOANAPP_dataset , var1="white" , var2="obrat" )
 explanatories = ["const","white*obrat","white","hrat","obrat","loanprc","unem","male","married","dep","sch","cosign","chist","pubrec","mortlat1","mortlat2","vr"]
@@ -77,7 +77,7 @@ print("\n")
 """
 4-5の解答
 """
-print( "大問4.5の回答" )
+lib.chaper( "大問4.5の回答" )
 #####回帰式を定義#####
 const , a = b[0] ,b[4]
 y = a * 32 + const

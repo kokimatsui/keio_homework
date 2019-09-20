@@ -1,5 +1,7 @@
 #!-*-coding:utf-8-*-
-__all__ = ["add_suffix"]
+from colorama import Fore, Back, Style
+
+__all__ = ["add_suffix","chaper","title","not_done"]
 
 def add_suffix( coefs , labels=None ):
     """
@@ -10,3 +12,23 @@ def add_suffix( coefs , labels=None ):
             print( str(labels[i]) + "の値は" + str( coefs[i] ) )
         else:
             print( "β " + str(i) + "の値は" + str( coefs[i] ) )
+
+def title( text ):
+    """
+    タイトルを出力する
+    """
+    print( Fore.YELLOW + str( text ) + Style.RESET_ALL )
+
+
+def chaper( text ):
+    """
+    章を出力する
+    """
+    print( Fore.GREEN + str( text ) + Style.RESET_ALL )
+
+
+def not_done( text ):
+    """
+    未解答のテキストを赤色で出力
+    """
+    print( Fore.RED + str( text ) + Style.RESET_ALL )
