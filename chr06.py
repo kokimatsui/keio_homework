@@ -25,23 +25,23 @@ print("\n")
 """
 7-2の解答
 """
-lib.chaper("<7.2の解答>")
+lib.not_done("<7.2の解答>")
 print("\n")
 
 """
 7-3の解答
 """
-lib.chaper("<7.3の解答>")
+lib.not_done("<7.3の解答>")
 print("\n")
 
 """
 7-4の解答
 """
-lib.chaper("<7.4の解答>")
+lib.not_done("<7.4の解答>")
 print("\n")
 
 """
 7-5の解答
 """
-lib.chaper("<7.5の解答>")
+lib.not_done("<7.5の解答>")
 print("\n")

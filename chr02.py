@@ -24,7 +24,7 @@ print("\n")
 """
 3-2の解答
 """
-lib.chaper( "大問3.2の回答" )
+lib.not_done( "大問3.2の回答" )
 CEOSAL2_dataset = lib.load( filename="CEOSAL2.csv" )
 explanatories = ["const","lsales","lmktval","profits"]
 explained = ["lsalary"]

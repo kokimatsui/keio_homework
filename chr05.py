@@ -52,7 +52,7 @@ print("\n")
 """
 6-4の解答
 """
-lib.chaper("<6.4の解答>")
+lib.not_done("<6.4の解答>")
 print("未解答")
 print("\n")
 
@@ -76,17 +76,17 @@ print("\n")
 """
 6-7の解答
 """
-lib.chaper("<6.7の解答>")
+lib.not_done("<6.7の解答>")
 print("\n")
 
 """
 6-8の解答
 """
-lib.chaper("<6.8の解答>")
+lib.not_done("<6.8の解答>")
 print("\n")
 
 """
 6-9の解答
 """
-lib.chaper("<6.9の解答>")
+lib.not_done("<6.9の解答>")
 print("\n")

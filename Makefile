@@ -9,6 +9,7 @@ init:
 all-answer:
 	python chr00.py
 	python chr01.py
+	python chr02.py
 	python chr03.py
 	python chr04.py
 	python chr05.py
