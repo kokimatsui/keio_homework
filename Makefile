@@ -15,3 +15,4 @@ all-answer:
 	python chr05.py
 	python chr06.py
 	python chr07.py
+	python prog.py
