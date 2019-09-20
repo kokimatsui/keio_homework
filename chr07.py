@@ -23,9 +23,11 @@ Y = lib.df2mat( df=FERTIL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
 lib.add_suffix( coefs=b , labels=explanatories )
 const , educ , age , age_aqure = b[0] , b[1] , b[2] , b[3]
-y = -15 * educ
+y = educ
 
 print( y )
+print( "この意味を後ほど確認 " )
+print( "In particular, holding age fixed, what is the estimated effect of another year of education on fertility? If 100 women receive another year of education, how many fewer children are they expected to have?" )
 
 print("\n")
 
@@ -33,6 +35,15 @@ print("\n")
 8-2の解答
 """
 print("<8.2の解答>")
+#####説明変数を定義#####
+explanatories = ["const","educ","age","age*age","frsthalf"]
+explained = ["children"]
+
+X = lib.df2mat( df=FERTIL2_dataset , columns=explanatories )
+Y = lib.df2mat( df=FERTIL2_dataset , columns=explained )
+b = lib.reg( X=X , Y=Y )
+lib.add_suffix( coefs=b , labels=explanatories )
+print( "後ほど確認" )
 print("\n")
 
 """
@@ -45,4 +56,13 @@ print("\n")
 8-4の解答
 """
 print("<8.4の解答>")
+#####説明変数を定義#####
+explanatories = ["const","educ","age","age*age","frsthalf","electric","tv","bicycle"]
+explained = ["children"]
+FERTIL2_dataset = lib.rm( df=FERTIL2_dataset , cols=explanatories , string="." )
+X = lib.df2mat( df=FERTIL2_dataset , columns=explanatories )
+Y = lib.df2mat( df=FERTIL2_dataset , columns=explained )
+b = lib.reg( X=X , Y=Y )
+lib.add_suffix( coefs=b , labels=explanatories )
+print( "後ほど確認" )
 print("\n")

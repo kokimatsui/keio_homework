@@ -3,7 +3,7 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-__all__ = ["load","df2mat","cross_var","grouping"]
+__all__ = ["load","df2mat","cross_var","grouping","rm"]
 
 datasetpath = os.path.dirname( os.path.abspath(__file__) ) + "/../dataset/"
 
@@ -25,6 +25,26 @@ def load( filename ):
     else:
         print( "Unknown format" )
         sys.exit()
+
+
+    return df
+
+
+
+def rm( df , cols , string ):
+    """
+    stringに指定された不正文字列をdataframeから除去する
+    """
+    rems = []
+    if "const" in cols: cols.remove( "const" )
+    for col in cols:
+        for i in range( len( df ) ):
+            if df.ix[i,col] == string:
+                rems.append( i )
+
+
+    for rm in rems:
+        df = df.drop( rm )
 
 
     return df
