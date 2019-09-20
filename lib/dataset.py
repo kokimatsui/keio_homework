@@ -37,11 +37,10 @@ def rm( df , cols , string ):
     """
     rems = []
     if "const" in cols: cols.remove( "const" )
-    for col in cols:
-        for i in range( len( df ) ):
-            if df.ix[i,col] == string:
+    for i in range( len( df ) ):
+        for col in cols:
+            if df.ix[i,col] == string and i not in rems:
                 rems.append( i )
-
 
     for rm in rems:
         df = df.drop( rm )
