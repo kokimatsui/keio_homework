@@ -36,6 +36,7 @@ b = lib.reg( X=X , Y=Y )
 t_expendA = lib.t( X=X , Y=Y , beta=b )[1]
 
 lib.add_suffix( coefs=b , labels=explanatories )
+print( "Aの支出は、正に、Bの支出は負に影響を与えている" )
 print( "Aの支出は" + str( b[1] ) + "であり、t値が" +\
  str( round( t_expendA , 3 ) ) + "であり1%有意であることから、結果に大きな影響を与えると言える" )
 
@@ -45,8 +46,7 @@ print("\n")
 """
 5-4の解答
 """
-lib.not_done("<5.4の解答>")
-t = lib.t( X=X , Y=Y , beta=b , beta_01=b[2] )
-print( t )
-sys.exit()
+lib.chaper("<5.4の解答>")
+t = lib.t_v2( X=X , Y=Y , beta=b )
+print( "AもBも、1%有意で効果がある " )
 print("\n")
