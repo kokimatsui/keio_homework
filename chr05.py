@@ -77,17 +77,20 @@ print("\n")
 """
 6-7の解答
 """
-lib.not_done("<6.7の解答>")
+lib.title("<6.7の解答>")
+print("信頼区間")
+theta_1 = 150 * b[1] + b[2]
+#lib.df_assign( df=HPRICE_dataset , col="theta_1" , val=theta_1 )
 print("\n")
 
 """
 6-8の解答
 """
-lib.not_done("<6.8の解答>")
+lib.title("<6.8の解答>")
 print("\n")
 
 """
 6-9の解答
 """
-lib.not_done("<6.9の解答>")
+lib.title("<6.9の解答>")
 print("\n")

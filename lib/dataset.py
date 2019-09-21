@@ -3,7 +3,7 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-__all__ = ["load","df2mat","cross_var","grouping","rm"]
+__all__ = ["load","df2mat","cross_var","grouping","rm","df_assign"]
 
 datasetpath = os.path.dirname( os.path.abspath(__file__) ) + "/../dataset/"
 
@@ -46,6 +46,12 @@ def rm( df , cols , string ):
         df = df.drop( rm )
 
 
+    return df
+
+def df_assign( df , col , val ):
+    """
+    """
+    df = df.assign(col=val)
     return df
 
 

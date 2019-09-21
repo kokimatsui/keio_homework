@@ -40,11 +40,11 @@ print("\n")
 """
 7-4の解答
 """
-lib.not_done("<7.4の解答>")
+lib.title("<7.4の解答>")
 print("\n")
 
 """
 7-5の解答
 """
-lib.not_done("<7.5の解答>")
+lib.title("<7.5の解答>")
 print("\n")
