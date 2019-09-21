@@ -18,13 +18,13 @@ lib.chaper( "大問3.1の回答" )
 X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
-lib.add_suffix( b )
+lib.add_suffix( coefs=b , labels=explanatories )
 print("\n")
 
 """
 3-2の解答
 """
-lib.not_done( "大問3.2の回答" )
+lib.chaper( "大問3.2の回答" )
 CEOSAL2_dataset = lib.load( filename="CEOSAL2.csv" )
 explanatories = ["const","lsales","lmktval","profits"]
 explained = ["lsalary"]
@@ -32,7 +32,8 @@ explained = ["lsalary"]
 X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
-print( "未解答" )
+lib.add_suffix( coefs=b , labels=explanatories )
+print( "真数条件を満たさないためと答えたいところであるが、回帰パラメータの値が正であることから解答不能" )
 print("\n")
 
 """

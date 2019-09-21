@@ -34,6 +34,7 @@ def t( X , Y , beta , beta_01=0 ):
 
     return ( ( beta - beta_01 ) / st_err )
 
+
 def std_error( X , Y , beta ):
 
     X_bar = np.average( X )
@@ -41,8 +42,6 @@ def std_error( X , Y , beta ):
     st_err = np.sqrt( ( np.sum( (  Y - Y_hat  ) ** 2 ) / ( len( Y ) - 2 ) ) / np.sum( ( X - X_bar )**2 ) )
 
     return st_err
-
-
 
 
 def t_level( free , level=5 ):

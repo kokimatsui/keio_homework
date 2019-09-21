@@ -9,7 +9,7 @@ __all__ = ["random_effect"]
 
 def random_effect( df , group , X_cols , Y_cols ):
     """
-    変量効果モデル
+    変量効果モデル(※ではない。今後修正)
     """
     fixed = _convert( df=df , group=group )
     params = {}

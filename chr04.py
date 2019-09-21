@@ -18,7 +18,8 @@ print("\n")
 """
 5-2の解答
 """
-lib.not_done("<5.2の解答>")
+lib.chaper("<5.2の解答>")
+print( "β1 - β2 = 0" )
 print("\n")
 
 """
@@ -45,4 +46,7 @@ print("\n")
 5-4の解答
 """
 lib.not_done("<5.4の解答>")
+t = lib.t( X=X , Y=Y , beta=b , beta_01=b[2] )
+print( t )
+sys.exit()
 print("\n")
