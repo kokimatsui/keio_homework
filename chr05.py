@@ -52,8 +52,9 @@ print("\n")
 """
 6-4の解答
 """
-lib.not_done("<6.4の解答>")
-print("未解答")
+lib.chaper("<6.4の解答>")
+R = lib.R_Squere( Y=Y , X=X , beta=b )
+print( R )
 print("\n")
 
 """

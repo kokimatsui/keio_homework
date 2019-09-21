@@ -4,7 +4,7 @@ import numpy as np
 from scipy.stats import t as t_test
 from numpy.random import *
 
-__all__ = ["u","var","t","t_level","conf_inter","std_error","t_v2","std_error_v2"]
+__all__ = ["u","var","t","t_level","conf_inter","std_error","t_v2","std_error_v2","R_Squere"]
 
 def u( X ):
     """
@@ -53,7 +53,7 @@ def t_v2( X , Y , beta , beta_01=0 , num=0 ):
     t = []
     for i in range( len( beta ) ):
         st_err = std_error_v2( X=X , Y=Y , beta=beta , num=i )
-        print( st_err )
+        print( st_err  )
         t.append( ( ( beta[i] - beta_01 ) / st_err ) )
 
     return np.array( t )
@@ -90,6 +90,17 @@ def conf_inter( beta , t , free , se ):
         return { "Lower" : a1 , "Upper" : a2 }
     else:
         return { "Lower" : a2 , "Upper" : a1 }
+
+def R_Squere( Y , X , beta ):
+    """
+    自由度調整済み決定係数
+    """
+    Y_bar = np.average( Y )
+    Y_hat = np.dot( X , beta )
+    R = 1 - ( ( np.sum( ( Y - Y_hat ) ** 2 ) / ( len( Y ) - len( beta ) - 1 ) ) / ( np.sum( ( Y - Y_bar )**2 ) / ( len( Y ) - 1 ) ) )
+
+    return R
+
 
 def _sampling( X ):
     """
