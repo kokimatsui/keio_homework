@@ -8,7 +8,7 @@ import numpy as np
 lib.title("#############1 Matrix Calculus#############")
 #####データを読み取る#####
 artifical_dataset = lib.load( filename="artificial.csv" )
-explanatories = ["const" ,"x1"]
+explanatories = ["x1" ,"x2"]
 explained = ["y"]
 
 #####各変数を定義#####

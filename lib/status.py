@@ -82,7 +82,7 @@ def t_level( free , level=5 ):
     統計的に有意か調査
     """
 
-    return t_test.ppf( q=( 1 - level * 0.01 ) , df=free )
+    return t_test.pdf( q=( 1 - level * 0.01 ) , df=free )
 
 
 def conf_inter( beta , t , free , se ):
