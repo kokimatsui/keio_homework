@@ -13,7 +13,7 @@ FERTIL2_dataset = lib.cross_var( df=FERTIL2_dataset , var1="age" , var2="age" )
 """
 8-1の解答
 """
-lib.not_done("<8.1の解答>")
+lib.chaper("<8.1の解答>")
 #####説明変数を定義#####
 explanatories = ["const","educ","age","age*age"]
 explained = ["children"]
@@ -23,33 +23,35 @@ Y = lib.df2mat( df=FERTIL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
 lib.add_suffix( coefs=b , labels=explanatories )
 const , educ , age , age_aqure = b[0] , b[1] , b[2] , b[3]
-y = educ
+y = educ * 100
 
 print( y )
-print( "この意味を後ほど確認 " )
-print( "In particular, holding age fixed, what is the estimated effect of another year of education on fertility? If 100 women receive another year of education, how many fewer children are they expected to have?" )
+print( "9人減る" )
 
 print("\n")
 
 """
 8-2の解答
 """
-lib.not_done("<8.2の解答>")
+lib.chaper("<8.2の解答>")
 #####説明変数を定義#####
-explanatories = ["const","educ","age","age*age","frsthalf"]
-explained = ["children"]
+explanatories = ["const","frsthalf"]
+explained = ["educ"]
 
 X = lib.df2mat( df=FERTIL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=FERTIL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
+t = lib.t_v2( X=X , Y=Y , beta=b )
+lib.add_suffix( coefs=t , labels=explanatories )
 lib.add_suffix( coefs=b , labels=explanatories )
-print( "後ほど確認" )
+print( "有意性があるから、相関が強いとみてIVとして不適" )
 print("\n")
 
 """
 8-3の解答
 """
-lib.not_done("<8.3の解答>")
+lib.chaper("<8.3の解答>")
+print( "IVでは、educの係数が大きくなり、educの出生への影響が高いということがわかる" )
 print("\n")
 
 """
@@ -65,4 +67,6 @@ Y = lib.df2mat( df=FERTIL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
 lib.add_suffix( coefs=b , labels=explanatories )
 print( "後ほど確認" )
+
+print()
 print("\n")

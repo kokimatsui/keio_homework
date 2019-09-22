@@ -52,5 +52,5 @@ ceoten = b[1]
 y = ceoten
 
 #####解答#####
-print( "ceotenが1年伸びるとsalaryが" + str( y ) + "%伸びる"  )
+print( "ceotenが1年伸びるとsalaryが" + str( y * 100 ) + "%伸びる"  )
 print("\n")

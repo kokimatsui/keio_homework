@@ -33,7 +33,7 @@ X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
 lib.add_suffix( coefs=b , labels=explanatories )
-print( "真数条件を満たさないためと答えたいところであるが、回帰パラメータの値が正であることから解答不能" )
+print( "profitsは、データがマイナスの値をとるものがあるので、真数条件を満たさないため" )
 print("\n")
 
 """
@@ -53,7 +53,7 @@ b = lib.reg( X=X , Y=Y )
 lib.add_suffix( coefs=b , labels=explanatories )
 
 #####解答#####
-print( str( 0.01168 ) , "%" )
+print( str( 0.01168 * 100 ) , "%" )
 print("\n")
 
 """

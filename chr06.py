@@ -20,13 +20,15 @@ explained = ["invest"]
 X = lib.df2mat( df=grunfeld_dataset , columns=explanatories )
 Y = lib.df2mat( df=grunfeld_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
+print("提出の時は、βにちゃんと係数をいれましょう ")
 lib.add_suffix( coefs=b , labels=explanatories )
 print("\n")
 
 """
 7-2の解答
 """
-lib.chaper("<7.2の解答>")
+lib.not_done ("<7.2の解答>")
+print( "土屋くんに聞く" )
 firms = list( set( list( grunfeld_dataset["firm"] ) ) )
 
 for i in range( len( firms ) ):
@@ -46,7 +48,7 @@ for i in range( len( firms ) ):
 7-3の解答
 """
 lib.not_done("<7.3の解答>")
-print("明日確認")
+print( "土屋くんに聞く" ) 
 print("\n")
 
 """

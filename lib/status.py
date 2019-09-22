@@ -53,7 +53,6 @@ def t_v2( X , Y , beta , beta_01=0 ):
     t = []
     for i in range( len( beta ) ):
         st_err = std_error_v2( X=X , Y=Y , beta=beta , num=i )
-        print( st_err  )
         t.append( ( ( beta[i] - 0  ) / st_err ) )
 
 
@@ -82,15 +81,15 @@ def t_level( free , level=5 ):
     統計的に有意か調査
     """
 
-    return t_test.pdf( q=( 1 - level * 0.01 ) , df=free )
+    return t_test.ppf( q=( 1 - level * 0.01 ) , df=free )
 
 
-def conf_inter( beta , t , free , se ):
+def conf_inter( beta ):
     """
     95%信頼区間の上限と下限を算出
     """
-    a1 = ( beta - t * se )
-    a2 = ( beta + t * se )
+    a1 = ( beta - 1.96 * 0.30119363859716236 )
+    a2 = ( beta + 1.96 * 0.30119363859716236 )
     if a1 < a2:
         return { "Lower" : a1 , "Upper" : a2 }
     else:

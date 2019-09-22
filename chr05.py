@@ -33,7 +33,7 @@ const , sqrft , bdrms = b[0] , b[1] , b[2]
 y_bdrms = bdrms
 
 #####解答#####
-print( "bdrmsの数が1単位上がると、priceは" + str( round( y_bdrms , 4 ) ) + "%上がる" )
+print( "bdrmsの数が1単位上がると、priceは" + str( round( y_bdrms * 100 , 4 ) ) + "%上がる" )
 print("\n")
 
 
@@ -44,9 +44,9 @@ lib.chaper("<6.3の解答>")
 #####回帰係数の取得#####
 const , sqrft , bdrms = b[0] , b[1] , b[2]
 y_sqrft = 140 * sqrft
-print( "bedroomが1増えた場合は" + str( round( y_bdrms , 4 ) ) + "%の伸び率だったのに対し、\
-y_sqrftが140増えた場合は" + str( round(  y_sqrft , 4 ) ) + "%の伸び率だった" )
-print( "両者とも間取りは同じであるはずなのに、約2倍の結果の差が見られた" )
+print( "質問の意味がわからん" )
+print( "bedroomが1増えた場合は" + str( round( y_bdrms * 100 , 4 ) ) + "%の伸び率だったのに対し、\
+y_sqrftが140増えた場合は" + str( round(  y_sqrft * 100 , 4 ) ) + "%の伸び率だった" )
 print("\n")
 
 """
@@ -69,9 +69,9 @@ print("\n")
 6-6の解答
 """
 lib.chaper("<6.6の解答>")
-y_teach = 300000
+y_teach = 300000 
 residual = np.abs( y_teach - np.exp( y_pred ) )
-print( str( round( residual , 3 ) ) + "円分overpayしている " )
+print( str( round( residual , 3 ) ) + "ドル分underpayしている " )
 print("\n")
 
 """

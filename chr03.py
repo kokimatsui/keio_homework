@@ -69,6 +69,7 @@ b = lib.reg( X=X , Y=Y )
 t = lib.t( X=X , Y=Y , beta=b )[1]
 
 #####解答#####
+lib.add_suffix( coefs=b , labels=explanatories )
 print( "t値の1%水準" , lib.t_level( free=( X.shape[0] - len( b ) ) , level=1 ) )
 print( "t値 :", t )
 print( "obratとwhiteの交差項は1%で統計的に有意" )
@@ -78,21 +79,21 @@ print("\n")
 4-5の解答
 """
 lib.chaper( "大問4.5の回答" )
-#####回帰式を定義#####
-const , a = b[0] ,b[4]
-y = a * 32 + const
-
 #####各変数を定義#####
 obrat = lib.df2mat( df=LOANAPP_dataset , columns=["obrat"] )
 obrat_bar = np.average( obrat )
-inter = lib.conf_inter( beta=a , t=lib.t( X=X , Y=Y , beta=b )[4] , free=( X.shape[0] - len( b ) - 1  ) , se=lib.std_error( X=X , Y=Y , beta=b ) )
+#####回帰式を定義#####
+const , obratwhite , white , obrat = b[0] , b[1] , b[2] ,b[4]
+y = obrat * 32 + white + obratwhite
+
+inter = lib.conf_inter( beta=y )
 
 #####解答#####
-print( "obratの値が32のときyの値は" , y , "なので、承認されていない" )
+print( "obratの値が32のとき承認される確率は" , y )
 print( "32は、だいたいobratの標本平均である" + str( round( obrat_bar , 3 ) ) + "と近い" )
-print( a )
-print( inter )
-print( "Obtain a 95% confidence interval for this effectはまだ答えていない" )
+#print( inter )
+print("信頼区間の求め方の正解をしりたいから、伊藤さんに確認")
+print("差別はある")
 
 
 print("\n")
