@@ -50,9 +50,10 @@ explained = ["lsalary"]
 X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 Y = lib.df2mat( df=CEOSAL2_dataset , columns=explained )
 b = lib.reg( X=X , Y=Y )
+lib.add_suffix( coefs=b , labels=explanatories )
 
 #####解答#####
-print( str( 0.01168 * 100 ) , "%" )
+print( str( 0.01168 ) , "%" )
 print("\n")
 
 """

@@ -48,5 +48,6 @@ print("\n")
 """
 lib.chaper("<5.4の解答>")
 t = lib.t_v2( X=X , Y=Y , beta=b )
+lib.add_suffix( coefs=t , labels=explanatories )
 print( "AもBも、1%有意で効果がある " )
 print("\n")

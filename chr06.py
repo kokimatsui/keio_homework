@@ -13,8 +13,6 @@ grunfeld_dataset = lib.load( filename="grunfeld.csv" )
 7-1の解答
 """
 lib.chaper("<7.1の解答>")
-grouped_firm = lib.grouping( df=grunfeld_dataset , name="firm" )
-grouped_year = lib.grouping( df=grunfeld_dataset , name="year" )
 explanatories = ["const","value","capital"]
 explained = ["invest"]
 
@@ -28,13 +26,27 @@ print("\n")
 """
 7-2の解答
 """
-lib.not_done("<7.2の解答>")
-print("\n")
+lib.chaper("<7.2の解答>")
+firms = list( set( list( grunfeld_dataset["firm"] ) ) )
+
+for i in range( len( firms ) ):
+    print(firms[i])
+    this = "hetero"+str(i)
+    hetero = lib.replace(df=grunfeld_dataset["firm"],frm=firms[i],to=1)
+    grunfeld_dataset = lib.add_col( df=grunfeld_dataset , col=this , val=hetero )
+    explanatories = ["const","value","capital",this]
+    explained = ["invest"]
+    X = lib.df2mat( df=grunfeld_dataset , columns=explanatories )
+    Y = lib.df2mat( df=grunfeld_dataset , columns=explained )
+    b = lib.reg( X=X , Y=Y )
+    lib.add_suffix( coefs=b , labels=explanatories )
+    print("\n")
 
 """
 7-3の解答
 """
 lib.not_done("<7.3の解答>")
+print("明日確認")
 print("\n")
 
 """

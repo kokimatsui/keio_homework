@@ -46,7 +46,7 @@ def std_error( X , Y , beta ):
     return st_err
 
 
-def t_v2( X , Y , beta , beta_01=0 , num=0 ):
+def t_v2( X , Y , beta , beta_01=0 ):
     """
     t値
     """
@@ -54,7 +54,8 @@ def t_v2( X , Y , beta , beta_01=0 , num=0 ):
     for i in range( len( beta ) ):
         st_err = std_error_v2( X=X , Y=Y , beta=beta , num=i )
         print( st_err  )
-        t.append( ( ( beta[i] - beta_01 ) / st_err ) )
+        t.append( ( ( beta[i] - 0  ) / st_err ) )
+
 
     return np.array( t )
 
@@ -63,13 +64,17 @@ def std_error_v2( X , Y , beta , num=0 ):
     """
     標準誤差
     """
+    X_col = X[:,num]
     Y_hat = np.dot( X , beta )
-    RSS = ( np.sum( (  Y - Y_hat  ) ** 2 ) )
-    X_Sq = np.sum( X[:,num] ** 2 )
-    N = ( len( Y ) - 2 )
-    S_sq = RSS / N
+    RSS = np.sum( (  Y - Y_hat  ) ** 2 )
+    if np.max( X_col ) == 1.0 and np.min( X_col ) == 1.0:
 
-    return np.sqrt( S_sq / X_Sq )
+        return np.sqrt( RSS / ( len( Y ) - len( beta ) ) )
+    else:
+        X_Sq = np.sum( ( ( X_col - np.average( X_col ) ) ) ** 2 )
+        S_sq = RSS / ( len( Y ) - 2 )
+
+        return np.sqrt( S_sq / X_Sq )
 
 
 def t_level( free , level=5 ):

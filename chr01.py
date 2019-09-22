@@ -18,6 +18,9 @@ X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
 """
 lib.chaper( "<大問2.1の回答>" )
 print( "Salaryの平均値 :" , round( np.average( X ) , 3  ) )
+explanatories = ["ceoten"]
+X = lib.df2mat( df=CEOSAL2_dataset , columns=explanatories )
+print( "Tenureの平均値 :" , round( np.average( X ) , 3  ) )
 print("\n")
 
 """
@@ -25,9 +28,11 @@ print("\n")
 """
 lib.chaper( "<大問2.2の回答>" )
 ceoten = CEOSAL2_dataset[ CEOSAL2_dataset["ceoten"] <=0  ]
+ceoten_max = np.max( np.array( CEOSAL2_dataset["ceoten"] ) )
 
 #####解答#####
 print( "CEOの在任期間が0の人の数 :", len( ceoten ) )
+print( "CEOの在任期間の最大値 :", ceoten_max )
 print("\n")
 
 """

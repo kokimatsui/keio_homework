@@ -3,7 +3,7 @@ import os
 import sys
 import numpy as np
 import pandas as pd
-__all__ = ["load","df2mat","cross_var","grouping","rm","df_assign"]
+__all__ = ["load","df2mat","cross_var","grouping","rm","df_assign","add_col","replace"]
 
 datasetpath = os.path.dirname( os.path.abspath(__file__) ) + "/../dataset/"
 
@@ -66,6 +66,13 @@ def df2mat( df , columns ):
 
     return Y
 
+def add_col( df , col , val ):
+    """
+    列を追加
+    """
+    df[col] = val
+
+    return df
 
 
 def cross_var( df , var1 , var2 ):
@@ -82,6 +89,17 @@ def grouping( df , name ):
     """
 
     return df.groupby(name)
+
+def replace( df , frm , to ):
+    """
+    要素の文字列を置換
+    """
+    df_copy = df.copy()
+    df_copy[ df_copy!=frm ] = 0
+    df_copy[ df_copy==frm ] = to
+    df = df_copy
+
+    return df
 
 
 def _raw2csv( root , file ):
