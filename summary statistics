@@ -1,0 +1,11 @@
+a = pd.read_csv("memo.csv")
+print(np.mean(a, axis="handicap"))
+
+import pandas as pd
+csv_data = pd.read_csv("memo.csv")
+column = csv_data["handicap"]
+column_mean = np.mean( column )
+
+print( csv_data.describe() )
+( csv_data.describe() )
+first_hikisu = csv_data.describe
